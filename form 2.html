@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Beautiful Unique Payment Form</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap');
+
+    /* Pastel color palette */
+    :root {
+      --pastel-pink: #ffdde1;
+      --pastel-mint: #d4f0f0;
+      --pastel-lilac: #cbc3e3;
+      --text-dark: #4b4453;
+      --shadow-soft: rgba(147, 134, 245, 0.4);
+      --input-bg: #fefcff;
+      --input-border: #c8bedc;
+      --button-bg: var(--pastel-lilac);
+      --button-hover-bg: #a89be1;
+    }
+
+    /* Reset */
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: linear-gradient(135deg, var(--pastel-pink) 0%, var(--pastel-mint) 50%, var(--pastel-lilac) 100%);
+      font-family: 'Montserrat', sans-serif;
+      color: var(--text-dark);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 2rem;
+    }
+
+    .payment-container {
+      background: var(--input-bg);
+      border-radius: 30px 10px 30px 10px;
+      box-shadow: 0 20px 40px var(--shadow-soft);
+      width: 100%;
+      max-width: 450px;
+      padding: 40px 45px;
+      position: relative;
+      z-index: 1;
+      transition: transform 0.3s ease;
+    }
+    .payment-container:hover {
+      transform: translateY(-5px);
+    }
+
+    h1 {
+      font-weight: 600;
+      font-size: 2.5rem;
+      margin-bottom: 1.2rem;
+      text-align: center;
+      letter-spacing: 1px;
+      color: var(--pastel-lilac);
+      text-shadow: 1px 1px 4px white;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+    }
+
+    label {
+      font-weight: 600;
+      margin-bottom: 6px;
+      font-size: 0.9rem;
+      color: #665f7a;
+      user-select: none;
+    }
+
+    input[type="text"],
+    input[type="password"],
+    input[type="month"],
+    textarea,
+    select {
+      background: var(--input-bg);
+      border: 2px solid var(--input-border);
+      border-radius: 15px;
+      padding: 12px 18px;
+      margin-bottom: 20px;
+      font-size: 1.1rem;
+      color: var(--text-dark);
+      box-shadow: inset 2px 2px 5px #fff, inset -5px -5px 8px #c2bdde;
+      transition: border-color 0.25s ease, box-shadow 0.25s ease;
+      font-weight: 500;
+      font-family: 'Montserrat', sans-serif;
+      resize: vertical;
+    }
+
+    input[type="text"]:focus,
+    input[type="password"]:focus,
+    input[type="month"]:focus,
+    textarea:focus,
+    select:focus {
+      border-color: var(--pastel-lilac);
+      box-shadow: 0 0 10px var(--pastel-lilac);
+      outline: none;
+    }
+
+    textarea {
+      min-height: 70px;
+    }
+
+    .inline-group {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin-bottom: 20px;
+    }
+
+    .inline-group > div {
+      flex: 1;
+      min-width: 140px;
+    }
+
+    /* Radio button group styling */
+    .radio-group {
+      margin-bottom: 20px;
+    }
+    .radio-group label {
+      display: inline-flex;
+      align-items: center;
+      margin-right: 18px;
+      cursor: pointer;
+      font-weight: 600;
+      color: #746a97;
+      user-select: none;
+      font-size: 1rem;
+    }
+    .radio-group input[type="radio"] {
+      display: inline-block;
+      margin-right: 8px;
+      accent-color: var(--pastel-lilac);
+      cursor: pointer;
+      width: 18px;
+      height: 18px;
+      vertical-align: middle;
+      position: relative;
+      top: 1px;
+    }
+
+    /* Submit button styling */
+    button[type="submit"] {
+      background: var(--button-bg);
+      border: none;
+      border-radius: 25px;
+      padding: 14px 0;
+      font-weight: 700;
+      font-size: 1.3rem;
+      color: white;
+      cursor: pointer;
+      box-shadow: 0 10px 20px var(--shadow-soft);
+      transition: background-color 0.3s ease, box-shadow 0.3s ease;
+      letter-spacing: 1px;
+      user-select: none;
+    }
+    button[type="submit"]:hover {
+      background: var(--button-hover-bg);
+      box-shadow: 0 15px 30px var(--shadow-soft);
+    }
+
+    /* Responsive adjustments */
+    @media(max-width: 480px) {
+      .payment-container {
+        padding: 30px 25px;
+      }
+      h1 {
+        font-size: 2rem;
+      }
+      .inline-group {
+        flex-direction: column;
+      }
+      .inline-group > div {
+        min-width: auto;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="payment-container" role="form" aria-labelledby="payment-title">
+    <h1 id="payment-title">Secure Payment</h1>
+    <form>
+      <label for="name">Full Name</label>
+      <input type="text" id="name" name="name" placeholder="John Raven" required />
+
+      <label for="address">Address</label>
+      <textarea id="address" name="address" placeholder="1234 Street, City, Country" required></textarea>
+
+      <fieldset class="radio-group" aria-label="Gender">
+        <legend style="font-weight:600; margin-bottom:8px; color:#746a97; user-select:none;">Gender</legend>
+        <label><input type="radio" name="gender" value="male" required /> Male</label>
+        <label><input type="radio" name="gender" value="female" /> Female</label>
+        <label><input type="radio" name="gender" value="other" /> Other</label>
+      </fieldset>
+
+      <fieldset class="radio-group" aria-label="Payment Method">
+        <legend style="font-weight:600; margin-bottom:8px; color:#746a97; user-select:none;">Payment Method</legend>
+        <label><input type="radio" name="paymentMethod" value="jazzcash" required /> JazzCash</label>
+        <label><input type="radio" name="paymentMethod" value="easypaisa" /> EasyPaisa</label>
+        <label><input type="radio" name="paymentMethod" value="hblbank" /> HBL Bank</label>
+      </fieldset>
+
+      <label for="cardNumber">Card Number</label>
+      <input 
+        type="text" 
+        id="cardNumber" 
+        name="cardNumber" 
+        inputmode="numeric" 
+        maxlength="19" 
+        placeholder="xxxx xxxx xxxx xxxx" 
+        required
+      />
+
+      <div class="inline-group">
+        <div>
+          <label for="cvc">CVC</label>
+          <input 
+            type="password" 
+            id="cvc" 
+            name="cvc" 
+            inputmode="numeric" 
+            maxlength="4" 
+            placeholder="123" 
+            required 
+          />
+        </div>
+        <div>
+          <label for="expiry">Expiry Date</label>
+          <input type="month" id="expiry" name="expiry" required />
+        </div>
+      </div>
+
+      <button type="submit" aria-label="Submit Payment">Pay Now</button>
+    </form>
+  </main>
+</body>
+</html>
+

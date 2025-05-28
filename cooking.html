@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Online Cooking Course - Bake & Cook Like a Pro</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+
+  /* Reset and base */
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #fceabb, #f8b500);
+    color: #333;
+    line-height: 1.6;
+  }
+
+  a {
+    color: #f95f62;
+    text-decoration: none;
+  }
+  a:hover {
+    text-decoration: underline;
+  }
+
+  /* Container */
+  .container {
+    max-width: 1100px;
+    margin: auto;
+    padding: 0 20px 50px 20px;
+  }
+
+  header {
+    background: #fff6e6;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    padding: 20px 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+
+  header .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  header h1 {
+    font-size: 2rem;
+    color: #f95f62;
+    text-shadow: 2px 2px 5px #fcd9cc;
+  }
+
+  nav ul {
+    list-style: none;
+    display: flex;
+  }
+
+  nav ul li {
+    margin-left: 25px;
+    font-weight: 600;
+  }
+
+  nav ul li a {
+    font-weight: 600;
+  }
+
+  nav ul li a:hover {
+    color: #f05a5a;
+  }
+
+  /* Hero Section */
+  #hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 60px 20px 40px;
+    color: #fff;
+    background: linear-gradient(135deg, #f95f62 40%, #f8b500 80%);
+    box-shadow: 0 8px 15px rgba(246,114,114,0.4);
+    border-radius: 15px;
+    transform-style: preserve-3d;
+    perspective: 800px;
+    animation: pulseGlow 4s ease-in-out infinite;
+    margin-bottom: 40px;
+  }
+
+  #hero h2 {
+    font-size: 2.8rem;
+    letter-spacing: 2px;
+    margin-bottom: 15px;
+    text-shadow: 3px 3px 8px rgba(0,0,0,0.2);
+  }
+  #hero p {
+    max-width: 600px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    text-shadow: 2px 2px 7px rgba(0,0,0,0.25);
+  }
+
+  @keyframes pulseGlow {
+    0%, 100% {
+      box-shadow: 0 0 15px #f95f62, 0 0 30px #f8b500;
+    }
+    50% {
+      box-shadow: 0 0 30px #f95f62, 0 0 60px #f8b500;
+    }
+  }
+
+  /* Features Section */
+  #features {
+    background: #fff0d4;
+    padding: 40px 0 60px 0;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(252, 235, 187, 0.4);
+  }
+
+  #features h3 {
+    text-align: center;
+    font-size: 2rem;
+    color: #f95f62;
+    margin-bottom: 30px;
+  }
+
+  .feature-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(220px,1fr));
+    gap: 30px;
+  }
+
+  .feature-item {
+    background: #fff6e6;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 3px 3px 10px rgba(249,95,98,0.3);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .feature-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 5px 12px 20px rgba(249,95,98,0.5);
+  }
+  .feature-item img {
+    width: 90px;
+    height: 90px;
+    object-fit: contain;
+    margin-bottom: 15px;
+    filter: drop-shadow(1px 1px 3px #f05a5a);
+  }
+
+  .feature-item h4 {
+    color: #f95f62;
+    font-weight: 700;
+    margin-bottom: 10px;
+  }
+  .feature-item p {
+    color: #553f00;
+    font-weight: 600;
+  }
+
+  /* Video Section */
+  #video-section {
+    margin: 60px 0;
+    text-align: center;
+  }
+
+  #video-section h3 {
+    font-size: 2rem;
+    color: #f95f62;
+    margin-bottom: 30px;
+  }
+
+  #video-section iframe {
+    width: 100%;
+    max-width: 720px;
+    height: 405px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(249,95,98,0.5);
+    transition: transform 0.4s ease;
+  }
+  #video-section iframe:hover {
+    transform: scale(1.02);
+  }
+
+  /* Registration Section */
+  #registration {
+    background: #fff6e6;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(252, 235, 187, 0.5);
+    padding: 50px 25px 40px;
+    max-width: 600px;
+    margin: 0 auto 70px;
+  }
+
+  #registration h3 {
+    text-align: center;
+    font-size: 2rem;
+    color: #f95f62;
+    margin-bottom: 20px;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+
+  label {
+    font-weight: 600;
+    margin-bottom: 6px;
+    color: #bc4749;
+  }
+
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"] {
+    padding: 12px 15px;
+    margin-bottom: 20px;
+    border: 2px solid #f9c400;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+  }
+  input[type="text"]:focus,
+  input[type="email"]:focus,
+  input[type="tel"]:focus {
+    border-color: #f95f62;
+    outline: none;
+  }
+
+  button[type="submit"] {
+    padding: 15px;
+    background: linear-gradient(45deg, #f95f62, #f8b500);
+    border: none;
+    border-radius: 10px;
+    color: white;
+    font-weight: 700;
+    font-size: 1.2rem;
+    cursor: pointer;
+    box-shadow: 0 6px 15px rgba(249,95,98,0.6);
+    transition: background 0.3s ease, transform 0.3s ease;
+  }
+  button[type="submit"]:hover {
+    background: linear-gradient(45deg, #f8b500, #f95f62);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(249,95,98,0.8);
+  }
+
+  .note {
+    font-size: 0.9rem;
+    color: #bc4749;
+    margin-top: -15px;
+    margin-bottom: 25px;
+    text-align: center;
+  }
+
+  /* Info Boxes */
+  .info-boxes {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin-top: 40px;
+  }
+
+  .info-box {
+    background: #fae6c1;
+    box-shadow: 2px 3px 12px rgba(249,95,98,0.15);
+    padding: 25px 20px;
+    width: 280px;
+    border-radius: 15px;
+    margin-bottom: 30px;
+    color: #804000;
+    text-align: center;
+    font-weight: 600;
+    font-size: 1.1rem;
+    position: relative;
+  }
+  .info-box strong {
+    color: #f95f62;
+    font-size: 1.3rem;
+  }
+
+  /* Footer */
+  footer {
+    background: #f95f62;
+    color: white;
+    text-align: center;
+    padding: 25px 10px;
+    font-weight: 600;
+    box-shadow: inset 0 6px 10px rgba(255,255,255,0.2);
+  }
+
+  footer a {
+    color: #fff9f9;
+    font-weight: 700;
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    header .container {
+      flex-direction: column;
+      gap: 15px;
+    }
+    nav ul {
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+    }
+    .feature-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+    .info-boxes {
+      flex-direction: column;
+      align-items: center;
+    }
+    .info-box {
+      width: 90%;
+    }
+  }
+  @media (max-width: 480px) {
+    .feature-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+</head>
+<body>
+<header>
+  <div class="container">
+    <h1>CookItUp Academy</h1>
+    <nav>
+      <ul>
+        <li><a href="#features">What You'll Learn</a></li>
+        <li><a href="#video-section">Preview</a></li>
+        <li><a href="#registration">Register</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<section id="hero" aria-label="Main introductory section">
+  <h2>Become a Master Chef from Home!</h2>
+  <p>Join our online cooking course: learn to make cakes, pizzas, cupcakes, drinks, pasta & more. Live Zoom classes & workshops included.</p>
+</section>
+
+<section id="features" aria-label="Features of course">
+  <h3>What You'll Learn</h3>
+  <div class="feature-grid">
+    <div class="feature-item" tabindex="0" aria-label="Learn to make delicious cake">
+      <img src="https://i.imgur.com/Fh3Yhrf.png" alt="Cake icon" />
+      <h4>Master Cake Baking</h4>
+      <p>From classic chocolate to colorful layered cakes.</p>
+    </div>
+    <div class="feature-item" tabindex="0" aria-label="Learn to make yummy pizza">
+      <img src="https://i.imgur.com/q7lOJDP.png" alt="Pizza icon" />
+      <h4>Perfect Pizza Dough & Toppings</h4>
+      <p>Create pizzeria-quality pizzas at home.</p>
+    </div>
+    <div class="feature-item" tabindex="0" aria-label="Learn to make delicious cupcakes">
+      <img src="https://i.imgur.com/JOJuVm9.png" alt="Cupcake icon" />
+      <h4>Decorative Cupcakes</h4>
+      <p>Beautiful, tasty cupcakes with ease.</p>
+    </div>
+    <div class="feature-item" tabindex="0" aria-label="Learn to make refreshing drinks">
+      <img src="https://i.imgur.com/PWLr2DY.png" alt="Drink icon" />
+      <h4>Refreshing Drinks</h4>
+      <p>Cocktails, mocktails & healthy drinks recipes.</p>
+    </div>
+    <div class="feature-item" tabindex="0" aria-label="Learn to make pasta">
+      <img src="https://i.imgur.com/4X9VFum.png" alt="Pasta icon" />
+      <h4>Italian Pasta Varieties</h4>
+      <p>Perfect sauces and dough every time.</p>
+    </div>
+  </div>
+</section>
+
+<section id="video-section" aria-label="Video preview section">
+  <h3>Watch a Sample Lesson</h3>
+  <iframe src="https://www.youtube.com/embed/4aZr5hZXP_s" title="Sample cooking lesson - Cake decoration" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</section>
+
+<section id="registration" aria-label="Course registration form">
+  <h3>Register Now</h3>
+  <form id="regForm" aria-describedby="regNote" novalidate>
+    <label for="name">Full Name *</label>
+    <input type="text" id="name" name="name" required aria-required="true" placeholder="Your full name" />
+
+    <label for="email">Email Address *</label>
+    <input type="email" id="email" name="email" required aria-required="true" placeholder="you@example.com" />
+
+    <label for="phone">Phone Number *</label>
+    <input type="tel" id="phone" name="phone" required aria-required="true" placeholder="e.g. +923001234567" pattern="[+0-9 ]{10,15}" />
+
+    <p class="note" id="regNote">
+      Registration fee is 5000 Rs (PKR). Please submit payment online through Easypaisa to number <strong>250968139</strong>. After payment, complete your registration by submitting this form.
+    </p>
+
+    <button type="submit" aria-label="Submit registration form">Submit Registration</button>
+  </form>
+</section>
+
+<section class="info-boxes" aria-label="Course details and additional info">
+  <div class="info-box" tabindex="0">
+    <strong>Course Timing:</strong><br />
+    2:00 AM - 4:00 AM (Pakistan Standard Time)
+  </div>
+  <div class="info-box" tabindex="0">
+    <strong>Live Zoom Classes</strong><br />
+    Experience interactive workshops with top chefs.
+  </div>
+  <div class="info-box" tabindex="0">
+    <strong>Certificate</strong><br />
+    Official certificate upon course completion.
+  </div>
+  <div class="info-box" tabindex="0">
+    <strong>Contact Us</strong><br />
+    Phone: <a href="tel:+9234097198">+92 340 971 98</a>
+  </div>
+</section>
+
+<footer id="contact" aria-label="Footer with contact information">
+  &copy; 2024 CookItUp Academy | Contact: <a href="tel:+9234097198">+92 340 971 98</a> | Payment Easypaisa: 250968139
+</footer>
+
+<script>
+  // Form validation and submission simulation
+  const form = document.getElementById('regForm');
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    // Basic validation
+    if (!form.name.value.trim()) {
+      alert('Please enter your full name.');
+      form.name.focus();
+      return;
+    }
+    if (!form.email.value.trim() || !form.email.validity.valid) {
+      alert('Please enter a valid email address.');
+      form.email.focus();
+      return;
+    }
+    if (!form.phone.value.trim() || !form.phone.checkValidity()) {
+      alert('Please enter a valid phone number (digits and + only, 10-15 chars).');
+      form.phone.focus();
+      return;
+    }
+
+    // Simulate form submission
+    alert(
+      `Thank you, ${form.name.value}! Your registration for the cooking course has been received.\n\n` +
+      `Remember to submit your payment of 5000 Rs via Easypaisa to number 250968139.\n` +
+      `You will receive zoom links and course info upon confirmation.`
+    );
+
+    form.reset();
+  });
+</script>
+</body>
+</html>
+
